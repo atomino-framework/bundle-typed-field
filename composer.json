@@ -1,0 +1,24 @@
+{
+    "name": "atomino/framework",
+    "description": "Atomino JSON field entity plugin",
+    "keywords": [],
+    "license" : "MIT",
+    "authors" : [
+        {
+            "name": "Gergely Laborci",
+            "email": "gergely@laborci.hu"
+        },
+        {
+            "name": "Balázs Láng",
+            "email": "balazs.lang@outlook.de"
+        }
+    ],
+    "require": {
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Atomino\\Molecules\\EntityPlugin\\JSON\\": "src/"
+        }
+    }
+}
