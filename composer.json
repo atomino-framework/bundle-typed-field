@@ -1,5 +1,5 @@
 {
-    "name": "atomino/framework",
+    "name": "atomino/plugin-json",
     "description": "Atomino JSON field entity plugin",
     "keywords": [],
     "license" : "MIT",
