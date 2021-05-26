@@ -1,5 +1,5 @@
 {
-    "name": "atomino/plugin-json",
+    "name": "atomino/bundle-json",
     "description": "Atomino JSON field entity plugin",
     "keywords": [],
     "license" : "MIT",
@@ -18,7 +18,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Atomino\\Molecules\\EntityPlugin\\JSON\\": "src/"
+            "Atomino\\Bundle\\\\JSON\\": "bundle/",
+            "Atomino\\Carbon\\Plugins\\JSON\\": "plugin-carbon/"
         }
     }
 }

@@ -1,8 +1,8 @@
-<?php namespace Atomino\Molecules\EntityPlugin\JSON;
+<?php namespace Atomino\Carbon\Plugins\JSON;
 
-use Atomino\Entity\Attributes\EventHandler;
-use Atomino\Entity\Entity;
-use Atomino\Entity\Model;
+use Atomino\Carbon\Attributes\EventHandler;
+use Atomino\Carbon\Entity;
+use Atomino\Carbon\Model;
 
 /**
  * @method static Model model()

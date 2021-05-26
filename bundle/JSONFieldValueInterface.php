@@ -1,4 +1,4 @@
-<?php namespace Atomino\Molecules\EntityPlugin\JSON;
+<?php namespace Atomino\Bundle\JSON;
 
 interface JSONFieldValueInterface {
     /**

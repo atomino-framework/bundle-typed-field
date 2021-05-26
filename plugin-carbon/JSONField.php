@@ -1,7 +1,8 @@
-<?php namespace Atomino\Molecules\EntityPlugin\JSON;
+<?php namespace Atomino\Carbon\Plugins\JSON;
 
-use Atomino\Entity\Generator\CodeWriter;
-use Atomino\Entity\Plugin\Plugin;
+use Atomino\Carbon\Generator\CodeWriter;
+use Atomino\Carbon\Plugin\Plugin;
+use Atomino\Bundle\JSON\JsonFieldValueInterface;
 
 /**
  * Class JsonField
@@ -9,9 +10,9 @@ use Atomino\Entity\Plugin\Plugin;
  * Appends $targetField as a mutable public property that contains an instance of $targetClass
  * populated with JSON decoded data from $sourceField.
  *
- * @package Atomino\Molecules\EntityPlugin\JSON
+ * @package Atomino\Carbon\Plugins\JSON
  */
-#[\Attribute(\Attribute::TARGET_CLASS)]
+#[\Attribute(\Attribute::TARGET_CLASS + \Attribute::IS_REPEATABLE)]
 class JSONField extends Plugin {
     public string $sourceField;
 
@@ -32,7 +33,7 @@ class JSONField extends Plugin {
     }
 
 	public function generate(\ReflectionClass $entityReflection, CodeWriter $codeWriter) {
-        $codeWriter->addAttribute("#[RequiredField( '" . $this->sourceField . "', \Atomino\Entity\Field\JsonField::class )]");
+        $codeWriter->addAttribute("#[RequiredField( '" . $this->sourceField . "', \Atomino\Carbon\Field\JsonField::class )]");
         $codeWriter->addCode("public \\".$this->targetClass." $".$this->targetField . ';');
     }
 
