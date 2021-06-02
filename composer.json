@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Atomino\\Bundle\\\\JSON\\": "bundle/",
+            "Atomino\\Bundle\\JSON\\": "bundle/",
             "Atomino\\Carbon\\Plugins\\JSON\\": "plugin-carbon/"
         }
     }

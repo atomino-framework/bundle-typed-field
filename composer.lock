@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2bb86795ef5fadb5ed6cc821db5dc5d",
+    "content-hash": "79af1072f33fe304676c11c4d984b54a",
     "packages": [
         {
             "name": "atomino/carbon",

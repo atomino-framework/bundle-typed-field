@@ -3,6 +3,9 @@
 use Atomino\Carbon\Generator\CodeWriter;
 use Atomino\Carbon\Plugin\Plugin;
 use Atomino\Bundle\JSON\JsonFieldValueInterface;
+use Attribute;
+use InvalidArgumentException;
+use ReflectionClass;
 
 /**
  * Class JsonField
@@ -12,7 +15,7 @@ use Atomino\Bundle\JSON\JsonFieldValueInterface;
  *
  * @package Atomino\Carbon\Plugins\JSON
  */
-#[\Attribute(\Attribute::TARGET_CLASS + \Attribute::IS_REPEATABLE)]
+#[Attribute(Attribute::TARGET_CLASS + Attribute::IS_REPEATABLE)]
 class JSONField extends Plugin {
     public string $sourceField;
 
@@ -22,7 +25,7 @@ class JSONField extends Plugin {
 	    string $sourceField = null,
     ) {
 	    if (!is_a($this->targetClass, JSONFieldValueInterface::class, true)) {
-	        throw new \InvalidArgumentException(sprintf(
+	        throw new InvalidArgumentException(sprintf(
 	            'Unsupported value class %s. Value class must implement %s',
                 $this->targetClass,
                 JSONFieldValueInterface::class
@@ -32,7 +35,7 @@ class JSONField extends Plugin {
         $this->sourceField = $sourceField ?? $this->targetField . 'Data';
     }
 
-	public function generate(\ReflectionClass $entityReflection, CodeWriter $codeWriter) {
+	public function generate(ReflectionClass $entityReflection, CodeWriter $codeWriter) {
         $codeWriter->addAttribute("#[RequiredField( '" . $this->sourceField . "', \Atomino\Carbon\Field\JsonField::class )]");
         $codeWriter->addCode("public \\".$this->targetClass." $".$this->targetField . ';');
     }
