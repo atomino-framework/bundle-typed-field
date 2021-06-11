@@ -10,6 +10,7 @@ use ReflectionClass;
 /**
  * Appends $targetField as a mutable public property that contains an instance of $targetClass
  * populated with values from $sourceField.
+ * Source field will be protected.
  */
 #[Attribute(Attribute::TARGET_CLASS | Attribute::IS_REPEATABLE)]
 class TypedField extends Plugin {
@@ -32,8 +33,27 @@ class TypedField extends Plugin {
     }
 
 	public function generate(ReflectionClass $entityReflection, CodeWriter $codeWriter) {
-        $codeWriter->addAttribute("#[RequiredField( '" . $this->sourceField . "', \Atomino\Carbon\Field\JsonField::class )]");
-        $codeWriter->addCode("public \\".$this->targetClass." $".$this->targetField . ';');
+        $this->generateSourceField($entityReflection, $codeWriter);
+        $this->generateTargetField($entityReflection, $codeWriter);
+    }
+
+    protected function generateSourceField(ReflectionClass $entityReflection, CodeWriter $codeWriter) {
+        $codeWriter->addAttribute(sprintf(
+            "#[RequiredField('%s', \Atomino\Carbon\Field\JsonField::class)]",
+            $this->sourceField
+        ));
+        $codeWriter->addAttribute(sprintf(
+            "#[Protect('%s', false, false)]",
+            $this->sourceField
+        ));
+    }
+
+    protected function generateTargetField(ReflectionClass $entityReflection, CodeWriter $codeWriter) {
+        $codeWriter->addCode(sprintf(
+            "public \\%s $%s;",
+            $this->targetClass,
+            $this->targetField
+        ));
     }
 
 	public function getTrait(): string|null { return TypedFieldTrait::class; }
