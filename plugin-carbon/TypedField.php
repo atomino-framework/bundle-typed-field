@@ -1,34 +1,30 @@
-<?php namespace Atomino\Carbon\Plugins\JSON;
+<?php namespace Atomino\Carbon\Plugins\TypedField;
 
 use Atomino\Carbon\Generator\CodeWriter;
 use Atomino\Carbon\Plugin\Plugin;
-use Atomino\Bundle\JSON\JsonFieldValueInterface;
+use Atomino\Bundle\TypedField\TypeInterface;
 use Attribute;
 use InvalidArgumentException;
 use ReflectionClass;
 
 /**
- * Class JsonField
- *
  * Appends $targetField as a mutable public property that contains an instance of $targetClass
- * populated with JSON decoded data from $sourceField.
- *
- * @package Atomino\Carbon\Plugins\JSON
+ * populated with values from $sourceField.
  */
-#[Attribute(Attribute::TARGET_CLASS + Attribute::IS_REPEATABLE)]
-class JSONField extends Plugin {
+#[Attribute(Attribute::TARGET_CLASS | Attribute::IS_REPEATABLE)]
+class TypedField extends Plugin {
     public string $sourceField;
 
 	public function __construct(
         public string $targetField,
-	    public string|JSONFieldValueInterface $targetClass,
+	    public string|TypeInterface $targetClass,
 	    string $sourceField = null,
     ) {
-	    if (!is_a($this->targetClass, JSONFieldValueInterface::class, true)) {
+	    if (!is_a($this->targetClass, TypeInterface::class, true)) {
 	        throw new InvalidArgumentException(sprintf(
 	            'Unsupported value class %s. Value class must implement %s',
                 $this->targetClass,
-                JSONFieldValueInterface::class
+                TypeInterface::class
             ));
         }
 
@@ -40,5 +36,5 @@ class JSONField extends Plugin {
         $codeWriter->addCode("public \\".$this->targetClass." $".$this->targetField . ';');
     }
 
-	public function getTrait(): string|null { return JSONFieldTrait::class; }
+	public function getTrait(): string|null { return TypedFieldTrait::class; }
 }

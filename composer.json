@@ -1,6 +1,6 @@
 {
-    "name": "atomino/bundle-json",
-    "description": "Atomino JSON field entity plugin",
+    "name": "atomino/bundle-typed-field",
+    "description": "Atomino Typed Field Carbon plugin",
     "keywords": [],
     "license" : "MIT",
     "authors" : [
@@ -19,8 +19,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Atomino\\Bundle\\JSON\\": "bundle/",
-            "Atomino\\Carbon\\Plugins\\JSON\\": "plugin-carbon/"
+            "Atomino\\Bundle\\TypedField\\": "bundle/",
+            "Atomino\\Carbon\\Plugins\\TypedField\\": "plugin-carbon/"
         }
     }
 }

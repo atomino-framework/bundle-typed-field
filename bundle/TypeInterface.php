@@ -1,6 +1,6 @@
-<?php namespace Atomino\Bundle\JSON;
+<?php namespace Atomino\Bundle\TypedField;
 
-interface JSONFieldValueInterface {
+interface TypeInterface {
     /**
      * Instantiates the class based on the passed values.
      * Ideally `static::fromArray($this->toArray())->toArray() == $this->toArray()`

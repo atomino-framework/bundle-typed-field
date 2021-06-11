@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79af1072f33fe304676c11c4d984b54a",
+    "content-hash": "7aba27cf0cf86a9e9e9abc7dafc3f8f9",
     "packages": [
         {
             "name": "atomino/carbon",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/atomino-framework/carbon.git",
-                "reference": "21ac5af2630edaf5fd3ed476c5a352612f7be483"
+                "reference": "d6e9a6b2a946fbb49c8ac0be732758c96f28af7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atomino-framework/carbon/zipball/21ac5af2630edaf5fd3ed476c5a352612f7be483",
-                "reference": "21ac5af2630edaf5fd3ed476c5a352612f7be483",
+                "url": "https://api.github.com/repos/atomino-framework/carbon/zipball/d6e9a6b2a946fbb49c8ac0be732758c96f28af7e",
+                "reference": "d6e9a6b2a946fbb49c8ac0be732758c96f28af7e",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +49,7 @@
                 "issues": "https://github.com/atomino-framework/carbon/issues",
                 "source": "https://github.com/atomino-framework/carbon/tree/master"
             },
-            "time": "2021-05-26T12:11:47+00:00"
+            "time": "2021-06-04T09:15:35+00:00"
         }
     ],
     "packages-dev": [],
